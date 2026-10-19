@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Krissty site stats</title><link rel="icon" href="assets/clover.svg" type="image/svg+xml">
+<style>body{font-family:system-ui,sans-serif;background:#f4f5f4;color:#17201a;display:grid;place-items:center;min-height:100vh;margin:0}
+.c{background:#fff;border-radius:20px;padding:28px 34px;box-shadow:0 6px 22px rgba(0,0,0,.06);text-align:center;min-width:280px}
+h1{color:#1f5e1f;margin:0 0 16px}.n{font:800 54px system-ui;color:#2e7d32}.l{color:#5b675e;margin-bottom:16px}small{color:#5b675e}</style></head>
+<body><div class="c"><h1>🍀 Krissty stats</h1>
+<div class="n" id="visits">…</div><div class="l">site visits (1 per browser session)</div>
+<div class="n" id="qr">…</div><div class="l">QR scans (<code>?src=qr</code>)</div>
+<small id="t"></small></div>
+<script>
+var NS='krissty-lifeis-short';
+function get(k,id){fetch('https://abacus.jasoncameron.dev/get/'+NS+'/'+k+'?t='+Date.now()).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){document.getElementById(id).textContent=j.value>=0?j.value:0}).catch(function(){document.getElementById(id).textContent='n/a'})}
+function run(){get('visits','visits');get('qr-scans','qr');document.getElementById('t').textContent='Updated '+new Date().toLocaleTimeString()}
+run();setInterval(run,60000);
+</script></body></html>

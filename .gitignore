@@ -1,0 +1,3 @@
+screenshot-*.png
+*.tmp
+node_modules/
