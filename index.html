@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Krissty 🍀 Digital Creator – Follow & win a Mustang GT photo session</title>
-<meta name="description" content="Follow Krissty (Lifeis Short) on Facebook. One lucky follower wins a photo session with a Ford Mustang GT 5.0 and a short ride at every follower milestone: 1000, 1666, 2000, 2666…">
+<meta name="description" content="Follow Krissty (Lifeis Short) on Facebook. One lucky follower wins a photo session with a Ford Mustang GT 5.0 and a short ride at every 10,000 followers: 10,000, 20,000, 30,000…">
 <meta name="theme-color" content="#1f5e1f">
 <link rel="canonical" href="https://sauliusramanauskas-commits.github.io/krissty/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sauliusramanauskas-commits.github.io/krissty/">
 <meta property="og:site_name" content="Krissty">
 <meta property="og:title" content="Krissty 🍀 Feeling lucky? Follow along.">
-<meta property="og:description" content="Follow Lifeis Short on Facebook – at every milestone (1000, 1666, 2000…) one lucky follower wins a Ford Mustang GT 5.0 photo session + short ride. / Sek ir laimėk fotosesiją su Mustang GT!">
+<meta property="og:description" content="Follow Lifeis Short on Facebook – at every 10,000 followers (10k, 20k, 30k…) one lucky follower wins a Ford Mustang GT 5.0 photo session + short ride. / Sek ir laimėk fotosesiją su Mustang GT!">
 <meta property="og:image" content="https://sauliusramanauskas-commits.github.io/krissty/assets/krissty.jpg">
 <meta property="og:locale" content="lt_LT">
 <meta property="og:locale:alternate" content="en_US">
@@ -178,7 +178,7 @@ footer .brand{color:#fff}
    <h3 style="font-size:24px" data-i18n="rulesTitle">Giveaway rules</h3>
    <ol>
     <li data-i18n="r1">Follow the “Lifeis Short” Facebook profile – that's your entry.</li>
-    <li data-i18n="r2">When we reach each prize milestone (1000, 1666, 2000, 2666, 3000, 3666…), one lucky follower is picked in a random draw among followers and announced on Krissty's Facebook.</li>
+    <li data-i18n="r2">When we reach each prize milestone (10,000, 20,000, 30,000… – every 10,000 followers), one lucky follower is picked in a random draw among followers and announced on Krissty's Facebook.</li>
     <li data-i18n="r3">The winner is contacted via Facebook Messenger and must reply within 7 days – otherwise a new winner is chosen.</li>
     <li data-i18n="r4">The photo session and short ride take place in Lithuania on an agreed date and place, in safe and legal conditions. The rider must follow the driver's safety instructions.</li>
     <li data-i18n="r5">No purchase necessary.</li>
@@ -261,7 +261,7 @@ ladderKicker:'Prize milestones',ladderTitle:'Every milestone = a new winner 🏎
 reached:'Reached – winner announced on Facebook',nextUp:'Next prize – {n} to go',upcoming:'Photo session + ride 🍀',
 rulesKicker:'Short & honest',rulesTitle:'Giveaway rules',
 r1:'Follow the “Lifeis Short” Facebook profile – that\'s your entry.',
-r2:'When we reach each prize milestone (1000, 1666, 2000, 2666, 3000, 3666…), one lucky follower is picked in a random draw among followers and announced on Krissty\'s Facebook.',
+r2:'When we reach each prize milestone (10,000, 20,000, 30,000… – every 10,000 followers), one lucky follower is picked in a random draw among followers and announced on Krissty\'s Facebook.',
 r3:'The winner is contacted via Facebook Messenger and must reply within 7 days – otherwise a new winner is chosen.',
 r4:'The photo session and short ride take place in Lithuania on an agreed date and place, in safe and legal conditions. The rider must follow the driver\'s safety instructions.',
 r5:'No purchase necessary.',r6:'Krissty can\'t cover travel costs.',r7:'Krissty may change or end the giveaway at any time.',
@@ -283,7 +283,7 @@ ladderKicker:'Prizų tikslai',ladderTitle:'Kiekvienas tikslas – naujas laimėt
 reached:'Pasiekta – laimėtojas paskelbtas Facebook\'e',nextUp:'Kitas prizas – liko {n}',upcoming:'Fotosesija + pasivažinėjimas 🍀',
 rulesKicker:'Trumpai ir sąžiningai',rulesTitle:'Žaidimo taisyklės',
 r1:'Sek „Lifeis Short“ Facebook profilį – tai ir yra tavo dalyvavimas.',
-r2:'Pasiekus kiekvieną prizų tikslą (1000, 1666, 2000, 2666, 3000, 3666…), burtų keliu tarp sekėjų išrenkamas vienas laimingasis ir paskelbiamas Krissty Facebook\'e.',
+r2:'Pasiekus kiekvieną prizų tikslą (10 000, 20 000, 30 000… – kas 10 000 sekėjų), burtų keliu tarp sekėjų išrenkamas vienas laimingasis ir paskelbiamas Krissty Facebook\'e.',
 r3:'Su laimėtoju susisiekiama per Facebook Messenger. Jis turi atsakyti per 7 dienas – kitaip išrenkamas naujas laimėtojas.',
 r4:'Fotosesija ir trumpas pasivažinėjimas vyksta Lietuvoje, suderintą dieną ir vietoje, saugiomis ir teisėtomis sąlygomis. Keleivis privalo laikytis vairuotojo saugumo nurodymų.',
 r5:'Nieko pirkti nereikia.',r6:'Krissty negali padengti kelionės išlaidų.',r7:'Krissty gali bet kada pakeisti arba nutraukti žaidimą.',
@@ -312,10 +312,10 @@ function apply(){
 document.querySelectorAll('[data-lang]').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.lang;try{localStorage.setItem('krissty-lang',lang)}catch(e){};apply()})});
 document.querySelectorAll('a.fb').forEach(function(a){a.href=FB});
 
-// milestones: every round thousand and thousand+666
-function milestones(c,count){var out=[];for(var k=1;out.length<count;k++){[k*1000,k*1000+666].forEach(function(m){if(out.length<count)out.push(m)})}return out}
+// milestones: every 10 000 followers
+function milestones(c,count){var out=[];for(var k=1;out.length<count;k++)out.push(k*10000);return out}
 function compute(c){
- var all=milestones(c,Math.max(12,Math.ceil((c+8000)/500)));
+ var all=milestones(c,Math.max(8,Math.ceil(c/10000)+7));
  var next=null,prev=0,reached=[];
  for(var i=0;i<all.length;i++){if(all[i]<=c){reached.push(all[i]);prev=all[i]}else{next=all[i];break}}
  var upcoming=all.filter(function(m){return m>c}).slice(0,6);

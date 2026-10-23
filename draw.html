@@ -84,13 +84,13 @@ var T={en:{followShort:'Follow',follow:'Follow on Facebook',rules:'Rules',title:
 lead:'At every prize milestone one lucky follower is picked in a random draw among followers. Prize: a Ford Mustang GT 5.0 photo session + a short ride.',
 followers:'followers',winner:'Winner 🎉',confirmed:'Winner confirmed – congratulations!',pending:'Draw done – winner announced soon on Facebook',
 preview:'PREVIEW – not public yet',replay:'Replay draw',details:'Transparency details',drawnAt:'Drawn at',entrants:'Entrants',hash:'SHA-256 of sorted entrant list',idx:'Random index',
-noDraws:'No draws yet',nextAt:'Next prize at {m} followers – {n} to go!',nextPlain:'First prize at 1,000 followers',
+noDraws:'No draws yet',nextAt:'Next prize at {m} followers – {n} to go!',nextPlain:'First prize at 10,000 followers',
 disc:'This promotion is in no way sponsored, endorsed, administered by, or associated with Facebook/Meta.'},
 lt:{followShort:'Sekti',follow:'Sekti Facebook\'e',rules:'Taisyklės',title:'Žaidimo burtai 🍀',
 lead:'Pasiekus kiekvieną prizų tikslą, burtų keliu tarp sekėjų išrenkamas vienas laimingasis. Prizas: fotosesija su Ford Mustang GT 5.0 ir trumpas pasivažinėjimas.',
 followers:'sekėjų',winner:'Laimėtojas 🎉',confirmed:'Laimėtojas patvirtintas – sveikiname!',pending:'Burtai ištraukti – laimėtojas netrukus bus paskelbtas Facebook\'e',
 preview:'PERŽIŪRA – dar neviešinama',replay:'Pakartoti burtus',details:'Skaidrumo informacija',drawnAt:'Burtų laikas',entrants:'Dalyvių',hash:'Surikiuoto dalyvių sąrašo SHA-256',idx:'Atsitiktinis indeksas',
-noDraws:'Burtų dar nebuvo',nextAt:'Kitas prizas – {m} sekėjų, liko {n}!',nextPlain:'Pirmasis prizas – 1 000 sekėjų',
+noDraws:'Burtų dar nebuvo',nextAt:'Kitas prizas – {m} sekėjų, liko {n}!',nextPlain:'Pirmasis prizas – 10 000 sekėjų',
 disc:'Ši akcija jokiu būdu nėra remiama, patvirtinta, administruojama Facebook/Meta ir nėra su jais susijusi.'}};
 var qs=new URLSearchParams(location.search), preview=qs.get('preview')==='1';
 var lang=qs.get('lang')||localStorage.getItem('krissty-lang')||((navigator.languages&&navigator.languages[0])||navigator.language||'en').toLowerCase().slice(0,2);
@@ -99,7 +99,7 @@ var draws=null, pool=[], current=null, played={};
 function t(k){return T[lang][k]}
 function fmt(n){return Number(n).toLocaleString(lang==='lt'?'lt-LT':'en-US').replace(/\u00a0/g,' ')}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-function nextM(c){var k=Math.floor(c/1000),a=[k*1000,k*1000+666,(k+1)*1000];for(var i=0;i<a.length;i++)if(a[i]>=1000&&a[i]>c)return a[i]}
+function nextM(c){return (Math.floor(c/10000)+1)*10000}
 function visible(d){return d.status==='confirmed'||preview}
 function render(){
  document.documentElement.lang=lang;

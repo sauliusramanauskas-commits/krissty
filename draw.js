@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Krissty milestone giveaway draw.
 // Usage:
-//   node draw.js --milestone 1000 --followers /workspace/fb-follower-watch/celebration/followers.jsonl [--publish] [--redraw]
-//   node draw.js --confirm 1000 [--publish]
+//   node draw.js --milestone 10000 --followers /workspace/fb-follower-watch/celebration/followers.jsonl [--publish] [--redraw]
+//   node draw.js --confirm 10000 [--publish]
 // Options: --site-dir <dir> (where draws.json + draws/ live; default: this script's dir)
 //          --any-milestone (allow non-prize milestone numbers, for testing only)
 'use strict';
@@ -77,7 +77,7 @@ function main() {
 
   const m = Number(o.milestone);
   if (!Number.isInteger(m) || m <= 0) throw new Error('--milestone <number> is required');
-  if (!isPrizeMilestone(m) && !o.flags.has('any-milestone')) throw new Error(`${m} is not a prize milestone (N000 or N666, N>=1)`);
+  if (!isPrizeMilestone(m) && !o.flags.has('any-milestone')) throw new Error(`${m} is not a prize milestone (every 10000)`);
   if (!o.followers) throw new Error('--followers <followers.jsonl> is required');
   const existing = db.draws.find(x => x.milestone === m);
   if (existing && !o.flags.has('redraw')) throw new Error(`Milestone ${m} already drawn (${existing.drawnAt}, status ${existing.status}). Use --redraw to replace it.`);
